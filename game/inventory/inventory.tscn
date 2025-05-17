@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2f2s06lfqst3"]
+
+[ext_resource type="Texture2D" uid="uid://bsyn6v3vw7kac" path="res://Спрайти/Invetory/inventory.png" id="1_bir6q"]
+[ext_resource type="Script" path="res://inventory/inventory.gd" id="2_2u73r"]
+[ext_resource type="PackedScene" uid="uid://bg3e8h5ct583n" path="res://inventory/slot.tscn" id="2_sytoc"]
+[ext_resource type="Resource" uid="uid://dyowvw6vnr0bb" path="res://Items/special_weapon.tres" id="3_hrvau"]
+[ext_resource type="Texture2D" uid="uid://cxrxg7wm2cp6j" path="res://Спрайти/Invetory/panel.png" id="3_sk0bh"]
+
+[node name="Inventory" type="NinePatchRect"]
+offset_left = 750.0
+offset_top = 12.0
+offset_right = 1150.0
+offset_bottom = 292.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("1_bir6q")
+region_rect = Rect2(16, 16, 128, 80)
+script = ExtResource("2_2u73r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 158.0
+offset_bottom = 158.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 50
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer3" parent="MarginContainer/GridContainer" instance=ExtResource("2_sytoc")]
+layout_mode = 2
+item = ExtResource("3_hrvau")
+
+[node name="PanelContainer2" parent="MarginContainer/GridContainer" instance=ExtResource("2_sytoc")]
+layout_mode = 2
+
+[node name="PanelContainer" parent="MarginContainer/GridContainer" instance=ExtResource("2_sytoc")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="MarginContainer/GridContainer" instance=ExtResource("2_sytoc")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="MarginContainer/GridContainer" instance=ExtResource("2_sytoc")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="MarginContainer/GridContainer" instance=ExtResource("2_sytoc")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="MarginContainer/GridContainer" instance=ExtResource("2_sytoc")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="MarginContainer/GridContainer" instance=ExtResource("2_sytoc")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="MarginContainer/GridContainer" instance=ExtResource("2_sytoc")]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+offset_left = 207.0
+offset_top = 50.0
+offset_right = 365.0
+offset_bottom = 208.0
+size_flags_horizontal = 8
+texture = ExtResource("3_sk0bh")
+region_rect = Rect2(-0.065383, -0.00835943, 16.0654, 18.0084)
+patch_margin_bottom = 2
+
+[node name="Name" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 138.0
+offset_bottom = 43.0
+
+[node name="Description" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 40.0
+offset_right = 136.0
+offset_bottom = 96.0
+
+[node name="Icon" type="TextureRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 96.0
+offset_right = 137.0
+offset_bottom = 136.0

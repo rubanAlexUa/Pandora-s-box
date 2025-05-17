@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg3e8h5ct583n"]
+
+[ext_resource type="Texture2D" uid="uid://cxrxg7wm2cp6j" path="res://Спрайти/Invetory/panel.png" id="1_m1wy5"]
+[ext_resource type="Script" path="res://inventory/slot.gd" id="1_y2jmh"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 50.0
+offset_bottom = 50.0
+script = ExtResource("1_y2jmh")
+
+[node name="BG" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_m1wy5")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

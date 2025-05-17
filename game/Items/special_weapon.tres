@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dyowvw6vnr0bb"]
+
+[ext_resource type="Texture2D" uid="uid://dhenbq134ifup" path="res://Спрайти/Special weapon/special_1.png" id="1_16ar1"]
+[ext_resource type="Script" path="res://inventory/Item.gd" id="2_wykhl"]
+
+[resource]
+script = ExtResource("2_wykhl")
+title = "Pinion & oil"
+icon = ExtResource("1_16ar1")
+description = "Шестерня та матило. Виглядає як запчастина турелі та забуте минуле. "

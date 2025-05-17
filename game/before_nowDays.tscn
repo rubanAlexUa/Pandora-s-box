@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=3 uid="uid://cnaqq7phoyi8q"]
+
+[ext_resource type="Script" path="res://before_now_days.gd" id="1_j0inw"]
+[ext_resource type="FontFile" uid="uid://d3ne1fw7cf2hp" path="res://DS_Pixel_Cyr.ttf" id="2_bb7wp"]
+[ext_resource type="AudioStream" uid="uid://ctuj5ncyknvec" path="res://Overall sounds/Retro_01/Retro_Multiple_v3_wav.wav" id="3_xx60i"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_83q1y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdrsl"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.584314, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fd20v"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hvk54"]
+font = ExtResource("2_bb7wp")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_ugfx5"]
+font = ExtResource("2_bb7wp")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_xdm3y"]
+font = ExtResource("2_bb7wp")
+font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtgn0"]
+bg_color = Color(0.67451, 0.588235, 0, 1)
+
+[node name="story_telling" type="Node2D"]
+script = ExtResource("1_j0inw")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(575.75, 323.75)
+scale = Vector2(1152.5, 648.5)
+texture = SubResource("CanvasTexture_83q1y")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_top = 484.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qdrsl")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/Panel"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 164.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fd20v")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/Panel/MarginContainer/Panel"]
+layout_mode = 2
+offset_right = 1102.0
+offset_bottom = 114.0
+
+[node name="Start" type="Label" parent="CanvasLayer/MarginContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "*"
+label_settings = SubResource("LabelSettings_hvk54")
+
+[node name="Main_text" type="Label" parent="CanvasLayer/MarginContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Hello:3"
+label_settings = SubResource("LabelSettings_ugfx5")
+autowrap_mode = 3
+
+[node name="End" type="Label" parent="CanvasLayer/MarginContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "v"
+label_settings = SubResource("LabelSettings_xdm3y")
+
+[node name="text_writing_sound" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/Panel/MarginContainer/Panel/HBoxContainer"]
+stream = ExtResource("3_xx60i")
+pitch_scale = 0.8
+autoplay = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 484.0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="img_future" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rtgn0")

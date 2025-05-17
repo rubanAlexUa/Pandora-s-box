@@ -1,0 +1,103 @@
+[gd_scene load_steps=14 format=3 uid="uid://evk35liqwpxr"]
+
+[ext_resource type="Script" path="res://npc/npc.gd" id="1_1t7ce"]
+[ext_resource type="Texture2D" uid="uid://bolgq6v4054tx" path="res://Спрайти/Дії персонажів/someone1.png" id="1_r0602"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr7ar"]
+atlas = ExtResource("1_r0602")
+region = Rect2(0, 60, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hua2w"]
+atlas = ExtResource("1_r0602")
+region = Rect2(60, 60, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhsof"]
+atlas = ExtResource("1_r0602")
+region = Rect2(120, 60, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq1td"]
+atlas = ExtResource("1_r0602")
+region = Rect2(180, 60, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34y80"]
+atlas = ExtResource("1_r0602")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x41ye"]
+atlas = ExtResource("1_r0602")
+region = Rect2(60, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8b62"]
+atlas = ExtResource("1_r0602")
+region = Rect2(120, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdhlu"]
+atlas = ExtResource("1_r0602")
+region = Rect2(180, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vssfs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr7ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hua2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhsof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq1td")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34y80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x41ye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8b62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdhlu")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qstkr"]
+radius = 12.0416
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7lb4v"]
+radius = 41.0122
+
+[node name="Npc" type="CharacterBody2D"]
+script = ExtResource("1_1t7ce")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_vssfs")
+animation = &"move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_qstkr")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+shape = SubResource("CircleShape2D_7lb4v")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

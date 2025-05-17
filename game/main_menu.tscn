@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://benax2pwxj3sn"]
+
+[ext_resource type="FontFile" uid="uid://dhq6axl23jc56" path="res://Daydream.ttf" id="1_a46cu"]
+[ext_resource type="Theme" uid="uid://ybywbpichhno" path="res://Default.tres" id="1_nt1cx"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_te1d4"]
+[ext_resource type="Texture2D" uid="uid://yanio7ljp4yp" path="res://Menu files/pandoras box main menu new.png" id="3_ucl5s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gg6ic"]
+font = ExtResource("1_a46cu")
+font_size = 30
+
+[node name="mainMenu" type="Node2D"]
+script = ExtResource("1_te1d4")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(579.333, 330)
+scale = Vector2(0.908333, 0.908333)
+texture = ExtResource("3_ucl5s")
+
+[node name="Label" type="Label" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
+offset_left = -521.101
+offset_top = -197.064
+offset_right = -133.101
+offset_bottom = -114.064
+text = "Pandora's box"
+label_settings = SubResource("LabelSettings_gg6ic")
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
+offset_left = 329.789
+offset_top = 107.89
+offset_right = 552.789
+offset_bottom = 197.89
+scale = Vector2(0.991725, 0.995698)
+theme = ExtResource("1_nt1cx")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+text = "Грати"
+
+[node name="Continue" type="Button" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
+offset_left = 261.651
+offset_top = 217.0
+offset_right = 606.651
+offset_bottom = 334.0
+theme = ExtResource("1_nt1cx")
+theme_override_colors/font_focus_color = Color(0.643137, 0.478431, 0.0941176, 1)
+text = "Продовжити"
+
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer/Sprite2D/Start" to="." method="_on_start_pressed"]

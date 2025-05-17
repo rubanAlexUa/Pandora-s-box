@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://32q8870e3jqo"]
+
+[ext_resource type="Texture2D" uid="uid://be3u1hduy1b1k" path="res://Спрайти/Special weapon/shrimp.png" id="1_3hycs"]
+[ext_resource type="Script" path="res://inventory/Item.gd" id="2_w8wyf"]
+
+[resource]
+script = ExtResource("2_w8wyf")
+title = "DIE KREVETTE"
+icon = ExtResource("1_3hycs")
+description = "Це креветка
+"

@@ -1,0 +1,214 @@
+[gd_scene load_steps=40 format=3 uid="uid://cqewl01aijpf7"]
+
+[ext_resource type="Script" path="res://get_item.gd" id="1_0rmeu"]
+[ext_resource type="FontFile" uid="uid://d3ne1fw7cf2hp" path="res://DS_Pixel_Cyr.ttf" id="1_8drt1"]
+[ext_resource type="Texture2D" uid="uid://c70356va16mhg" path="res://Menu files/Shrimp animation/shrimp_gaf15.png" id="3_fyvra"]
+[ext_resource type="Script" path="res://animatedTextureShrimp.gd" id="3_tevdy"]
+[ext_resource type="Texture2D" uid="uid://dlgxmft0nx56o" path="res://Menu files/Shrimp animation/shrimp_gaf1.png" id="5_tujk1"]
+[ext_resource type="Texture2D" uid="uid://juej0gdcfwh" path="res://Menu files/Shrimp animation/shrimp_gaf2.png" id="6_cau7x"]
+[ext_resource type="Texture2D" uid="uid://cbtkqieuyf5va" path="res://Menu files/Shrimp animation/shrimp_gaf3.png" id="7_a3ryv"]
+[ext_resource type="Texture2D" uid="uid://df8f34ajpqmwj" path="res://Menu files/Shrimp animation/shrimp_gaf4.png" id="8_adie5"]
+[ext_resource type="Texture2D" uid="uid://b7003y8qkdyui" path="res://Menu files/Shrimp animation/shrimp_gaf5.png" id="9_orn3u"]
+[ext_resource type="Texture2D" uid="uid://lnx1fan3mn6m" path="res://Menu files/Shrimp animation/shrimp_gaf6.png" id="10_7ejab"]
+[ext_resource type="Texture2D" uid="uid://7lyemga3470h" path="res://Menu files/Shrimp animation/shrimp_gaf7.png" id="11_0kfro"]
+[ext_resource type="Texture2D" uid="uid://cpt1pvhv2agvn" path="res://Menu files/Shrimp animation/shrimp_gaf8.png" id="12_a67qv"]
+[ext_resource type="Texture2D" uid="uid://bvy1q8u81lihl" path="res://Menu files/Shrimp animation/shrimp_gaf9.png" id="13_eknu8"]
+[ext_resource type="Texture2D" uid="uid://bsskssc3kq6th" path="res://Menu files/Shrimp animation/shrimp_gaf10.png" id="14_g1isl"]
+[ext_resource type="Texture2D" uid="uid://iksanwnyetar" path="res://Menu files/Shrimp animation/shrimp_gaf11.png" id="15_3sfmi"]
+[ext_resource type="Texture2D" uid="uid://xy4h7nemb4vu" path="res://Menu files/Shrimp animation/shrimp_gaf12.png" id="16_xeq1h"]
+[ext_resource type="Texture2D" uid="uid://rqbpre2smqa" path="res://Menu files/Shrimp animation/shrimp_gaf13.png" id="17_2no5k"]
+[ext_resource type="Texture2D" uid="uid://dn0eceo7xkkxl" path="res://Menu files/Shrimp animation/shrimp_gaf14.png" id="18_uaop2"]
+[ext_resource type="Texture2D" uid="uid://b4ttqaya4iy6a" path="res://Menu files/Shrimp animation/shrimp_gaf16.png" id="19_mgurd"]
+[ext_resource type="Texture2D" uid="uid://ckpunnwgqljlx" path="res://Menu files/Shrimp animation/shrimp_gaf17.png" id="20_ous7g"]
+[ext_resource type="Texture2D" uid="uid://t3jpah3pvmn4" path="res://Menu files/Shrimp animation/shrimp_gaf18.png" id="21_qfes5"]
+[ext_resource type="Texture2D" uid="uid://he5xrk8p1jbw" path="res://Menu files/Shrimp animation/shrimp_gaf19.png" id="22_sst11"]
+[ext_resource type="Texture2D" uid="uid://qnkgq55frrqj" path="res://Menu files/Shrimp animation/shrimp_gaf20.png" id="23_72kt2"]
+[ext_resource type="Texture2D" uid="uid://ch5aucnyd5hf7" path="res://Menu files/Shrimp animation/shrimp_gaf21.png" id="24_jkwhi"]
+[ext_resource type="Texture2D" uid="uid://mo2qkma2hw87" path="res://Menu files/Shrimp animation/shrimp_gaf22.png" id="25_khlnd"]
+[ext_resource type="Texture2D" uid="uid://xwdyubipe77" path="res://Menu files/Shrimp animation/shrimp_gaf23.png" id="26_m2df5"]
+[ext_resource type="Texture2D" uid="uid://bi1gino3dmnm4" path="res://Menu files/Shrimp animation/shrimp_gaf24.png" id="27_76f6h"]
+[ext_resource type="Texture2D" uid="uid://d1lufb46634wh" path="res://Menu files/Shrimp animation/shrimp_gaf25.png" id="28_24wiq"]
+[ext_resource type="Texture2D" uid="uid://qd6v3i7hajdt" path="res://Menu files/Shrimp animation/shrimp_gaf26.png" id="29_wv86l"]
+[ext_resource type="Texture2D" uid="uid://nvha5aym3qjo" path="res://Menu files/Shrimp animation/shrimp_gaf27.png" id="30_uelcm"]
+[ext_resource type="Texture2D" uid="uid://b0p1a2gkq14wk" path="res://Menu files/Shrimp animation/shrimp_gaf28.png" id="31_kqb3p"]
+[ext_resource type="AudioStream" uid="uid://7wkrhrp42hlg" path="res://Yay_happy.mp3" id="32_250cb"]
+[ext_resource type="AudioStream" uid="uid://c7ta1333yammg" path="res://Overall sounds/Retro_01/Retro_Multiple_v4_wav.wav" id="32_pgxhs"]
+[ext_resource type="AudioStream" uid="uid://ckmcwmfgqbsv4" path="res://yipee.mp3" id="32_vd7mp"]
+[ext_resource type="PackedScene" uid="uid://cd3jhsk1w687a" path="res://transition_screen.tscn" id="35_heeg3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_n3c20"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ae1nk"]
+font = ExtResource("1_8drt1")
+font_size = 50
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0sg7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tujk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cau7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a3ryv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_adie5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_orn3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7ejab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0kfro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_a67qv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_eknu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_g1isl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3sfmi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xeq1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2no5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_uaop2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fyvra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_mgurd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ous7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qfes5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_sst11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_72kt2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_jkwhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_khlnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_m2df5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_76f6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_24wiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_wv86l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_uelcm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_kqb3p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 60.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mllb5"]
+font = ExtResource("1_8drt1")
+font_size = 50
+
+[node name="get_item" type="Node2D"]
+script = ExtResource("1_0rmeu")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-4, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(580, 329)
+scale = Vector2(1152, 648)
+texture = SubResource("CanvasTexture_n3c20")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="item_name" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "DAS IST SHRIMP!"
+label_settings = SubResource("LabelSettings_ae1nk")
+horizontal_alignment = 1
+
+[node name="shrimp_texture" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture = ExtResource("30_uelcm")
+script = ExtResource("3_tevdy")
+sprites = SubResource("SpriteFrames_e0sg7")
+frame_index = 26
+auto_play = true
+playing = true
+
+[node name="main_text" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Reise and shine hero"
+label_settings = SubResource("LabelSettings_mllb5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Yippee" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/main_text"]
+stream = ExtResource("32_vd7mp")
+
+[node name="happy" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/main_text"]
+stream = ExtResource("32_250cb")
+
+[node name="typing_text" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/main_text"]
+stream = ExtResource("32_pgxhs")
+autoplay = true
+
+[node name="typing_text_item" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/main_text"]
+stream = ExtResource("32_pgxhs")
+
+[node name="TransitionScreen" parent="." instance=ExtResource("35_heeg3")]
+layer = 1
+
+[connection signal="transitioned" from="TransitionScreen" to="." method="_on_TransitionScreen_transitioned"]
