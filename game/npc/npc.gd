@@ -44,15 +44,16 @@ func choose(array):
 	array.shuffle()
 	return array[0]
 func move(delta):
-	position += dir * speed * delta
+	velocity = dir * speed
+	move_and_slide()
 
 func _on_chat_detection_area_body_entered(body) :
-	if body.has_method("player"):
+	if body.is_in_group("player"):
 		player = body 
 		player_in_chat_zone = true
 	
 func _on_chat_detection_area_body_exited(body) :
-	if body.has_method("player"):
+	if body.is_in_group("player"):
 		player_in_chat_zone = false
 
 func _on_timer_timeout() :

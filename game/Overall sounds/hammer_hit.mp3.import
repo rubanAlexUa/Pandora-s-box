@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ip66onu7yrnd"
+path="res://.godot/imported/hammer_hit.mp3-f34ec02afa81d021ebc956c79b4c26c8.mp3str"
+
+[deps]
+
+source_file="res://Overall sounds/hammer_hit.mp3"
+dest_files=["res://.godot/imported/hammer_hit.mp3-f34ec02afa81d021ebc956c79b4c26c8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

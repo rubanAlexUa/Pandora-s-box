@@ -68,7 +68,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fd20v")
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/Panel"]
 layout_mode = 2
 offset_right = 1102.0
-offset_bottom = 114.0
+offset_bottom = 134.0
 
 [node name="Start" type="Label" parent="CanvasLayer/Panel/MarginContainer/Panel/HBoxContainer"]
 layout_mode = 2
@@ -86,6 +86,7 @@ autowrap_mode = 3
 
 [node name="Emotion" type="TextureRect" parent="CanvasLayer/Panel/MarginContainer/Panel/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 texture = ExtResource("4_wmqph")
 expand_mode = 3
 

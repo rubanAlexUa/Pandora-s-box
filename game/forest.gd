@@ -1,7 +1,23 @@
 extends Area2D
 
-@export var lines: Array = [
-	"Ліс занадто густий щоб його пройти тут. Може є інший шлях щоб пройти?"
+enum Emotion {
+	NEUTRAL,
+	FINE,
+	ANGRY,
+	SHY,
+	INTERESTED,
+	GNARPY,
+	SHOCKED,
+	POKER_FACE,
+	DISMAY,
+	NONE
+}
+var lines = [
+	{
+	"text": "Ліс занадто густий щоб його пройти тут. Може є інший шлях щоб пройти?",
+		"emotion": Emotion.NONE
+	}
+	
 ]
 var dialogue_node: Node = null
 

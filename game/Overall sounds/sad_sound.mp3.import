@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbaeikfi1w8lb"
+path="res://.godot/imported/sad_sound.mp3-27529c7901a276f71e7eaec3c44fe2f8.mp3str"
+
+[deps]
+
+source_file="res://Overall sounds/sad_sound.mp3"
+dest_files=["res://.godot/imported/sad_sound.mp3-27529c7901a276f71e7eaec3c44fe2f8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

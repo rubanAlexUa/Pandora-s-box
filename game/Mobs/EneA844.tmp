@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsx54y6qlqe64"]
+
+[ext_resource type="Script" path="res://Mobs/enemies_spawner.gd" id="1_yv1w5"]
+
+[node name="EnemiesSpawner" type="Node2D"]
+script = ExtResource("1_yv1w5")
+
+[node name="Timer" type="Timer" parent="."]

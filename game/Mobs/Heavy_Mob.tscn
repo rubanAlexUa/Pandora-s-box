@@ -1,0 +1,131 @@
+[gd_scene load_steps=18 format=3 uid="uid://8wwu2u42acpu"]
+
+[ext_resource type="Script" path="res://Mobs/heavy_mob.gd" id="1_ddda0"]
+[ext_resource type="Texture2D" uid="uid://c35tcb3ndans6" path="res://Спрайти/bad/minions/alien.png" id="1_fl5f6"]
+[ext_resource type="PackedScene" uid="uid://dy1482m2psb43" path="res://health/health_component.tscn" id="2_j423x"]
+[ext_resource type="Script" path="res://Mobs/hurt_box_component.gd" id="4_vkotc"]
+[ext_resource type="Script" path="res://Mobs/healthBar_enemy.gd" id="5_dut6p"]
+[ext_resource type="PackedScene" uid="uid://dwd2yw4746xi2" path="res://money/coin_drop_component.tscn" id="6_gfg8j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3hwe"]
+atlas = ExtResource("1_fl5f6")
+region = Rect2(0, 0, 70, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu8hx"]
+atlas = ExtResource("1_fl5f6")
+region = Rect2(80, 0, 70, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwce0"]
+atlas = ExtResource("1_fl5f6")
+region = Rect2(160, 0, 70, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3frv"]
+atlas = ExtResource("1_fl5f6")
+region = Rect2(240, 0, 70, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf61x"]
+atlas = ExtResource("1_fl5f6")
+region = Rect2(320, 0, 70, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsd88"]
+atlas = ExtResource("1_fl5f6")
+region = Rect2(400, 0, 70, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4amk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3hwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu8hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwce0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3frv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vf61x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsd88")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t0nxs"]
+radius = 130.035
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xuqw8"]
+radius = 34.1321
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_831vm"]
+size = Vector2(116, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aet0c"]
+size = Vector2(116, 68)
+
+[node name="enemyHeavy" type="CharacterBody2D"]
+z_index = 3
+script = ExtResource("1_ddda0")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_j423x")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.66038, 1.66038)
+sprite_frames = SubResource("SpriteFrames_d4amk")
+autoplay = "default"
+frame = 4
+frame_progress = 0.28073
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_t0nxs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 9)
+shape = SubResource("CircleShape2D_xuqw8")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="HurtBoxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_vkotc")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_831vm")
+
+[node name="EnemyHitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_aet0c")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0.219608, 0.0705882, 1)
+offset_left = -27.0
+offset_top = 26.0
+offset_right = 28.0
+offset_bottom = 36.0
+show_percentage = false
+script = ExtResource("5_dut6p")
+
+[node name="coinDrop" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_gfg8j")]
+health_component = NodePath("../HealthComponent")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="HurtBoxComponent" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_entered" from="HurtBoxComponent" to="HurtBoxComponent" method="_on_area_entered"]

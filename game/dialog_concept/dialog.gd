@@ -25,7 +25,19 @@ enum Emotion {
 	GNARPY,
 	SHOCKED,
 	POKER_FACE,
-	DISMAY
+	DISMAY,
+	NONE
+}
+
+enum EmotionSeller {
+	NEUTRAL = 100,
+	FINE,
+	ANGRY,
+	SHY,
+	INTERESTED,
+	DISMAY,
+	POKER_FACE,
+	NONE
 }
 
 var emotion_textures = {
@@ -37,7 +49,15 @@ var emotion_textures = {
 	Emotion.GNARPY: preload("res://Спрайти/Діалогове вікно/emotions/gnarpi.png"),
 	Emotion.SHOCKED: preload("res://Спрайти/Діалогове вікно/emotions/shocked.png"),
 	Emotion.POKER_FACE: preload("res://Спрайти/Діалогове вікно/emotions/poker face.png"),
-	Emotion.DISMAY: preload("res://Спрайти/Діалогове вікно/emotions/dismay.png")
+	Emotion.DISMAY: preload("res://Спрайти/Діалогове вікно/emotions/dismay.png"),
+	Emotion.NONE: null,
+	EmotionSeller.NEUTRAL: preload("res://Спрайти/Діалогове вікно/sellerEmotions/neutral.png"),
+	EmotionSeller.FINE: preload("res://Спрайти/Діалогове вікно/sellerEmotions/fine.png"),
+	EmotionSeller.ANGRY: preload("res://Спрайти/Діалогове вікно/sellerEmotions/angry.png"),
+	EmotionSeller.SHY: preload("res://Спрайти/Діалогове вікно/sellerEmotions/shy.png"),
+	EmotionSeller.INTERESTED: preload("res://Спрайти/Діалогове вікно/sellerEmotions/interested.png"),
+	EmotionSeller.POKER_FACE: preload("res://Спрайти/Діалогове вікно/sellerEmotions/poker_face.png"),
+	EmotionSeller.DISMAY: preload("res://Спрайти/Діалогове вікно/sellerEmotions/dismay.png"),
 }
 
 var current_state = State.READY

@@ -1,0 +1,156 @@
+[gd_scene load_steps=20 format=3 uid="uid://b0igj0uw6tdx7"]
+
+[ext_resource type="Texture2D" uid="uid://cuwesm60pldop" path="res://Спрайти/Дії персонажів/schluz_npc.png" id="1_bn0s7"]
+[ext_resource type="Script" path="res://npc/npsc_seller/seller.gd" id="1_stasp"]
+[ext_resource type="Texture2D" uid="uid://bti0vm4lgfcjt" path="res://Спрайти/button-Q/act_with_seller.png" id="3_ps4wg"]
+[ext_resource type="Texture2D" uid="uid://bkeiomnqwlloq" path="res://Спрайти/button-Q/act_with_seller2.png" id="4_4hy7h"]
+[ext_resource type="PackedScene" uid="uid://dyxhl6xncr3te" path="res://shopMenu/shop_menu.tscn" id="5_l86hp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3exsn"]
+radius = 112.004
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra3p1"]
+atlas = ExtResource("1_bn0s7")
+region = Rect2(0, 60, 51, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1j73"]
+atlas = ExtResource("1_bn0s7")
+region = Rect2(60, 60, 51, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf4kj"]
+atlas = ExtResource("1_bn0s7")
+region = Rect2(120, 60, 51, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m6d7"]
+atlas = ExtResource("1_bn0s7")
+region = Rect2(180, 60, 51, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d8os"]
+atlas = ExtResource("1_bn0s7")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1twj"]
+atlas = ExtResource("1_bn0s7")
+region = Rect2(60, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wruv"]
+atlas = ExtResource("1_bn0s7")
+region = Rect2(120, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffn5o"]
+atlas = ExtResource("1_bn0s7")
+region = Rect2(180, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0va15"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra3p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1j73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf4kj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m6d7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d8os")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1twj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wruv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffn5o")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yc2kx"]
+radius = 13.0
+
+[sub_resource type="Animation" id="Animation_dfgsy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_ps4wg")]
+}
+
+[sub_resource type="Animation" id="Animation_ngysp"]
+resource_name = "button_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_ps4wg"), ExtResource("4_4hy7h")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yjlag"]
+_data = {
+"RESET": SubResource("Animation_dfgsy"),
+"button_animation": SubResource("Animation_ngysp")
+}
+
+[node name="npc_seller" type="CharacterBody2D"]
+z_index = 3
+script = ExtResource("1_stasp")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+shape = SubResource("CircleShape2D_3exsn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0va15")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yc2kx")
+
+[node name="actWithMe" type="Sprite2D" parent="."]
+position = Vector2(25, -31)
+scale = Vector2(0.421429, 0.421429)
+texture = ExtResource("3_ps4wg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="actWithMe"]
+libraries = {
+"": SubResource("AnimationLibrary_yjlag")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="shopMenu" parent="." instance=ExtResource("5_l86hp")]
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
