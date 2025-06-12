@@ -29,7 +29,11 @@ var lines = [
 var dialogue_node: Node = null
 func _ready():
 	$".".visible = false
-
+func _process(delta: float) -> void:
+	if Global.is_dialogue_open:
+		return
+	if $".".visible == true:
+		Global.can_move = false
 func _on_button_left_pressed() :
 	if(amount == 0):
 		sus.play()
@@ -88,3 +92,4 @@ func _on_close_shop_pressed():
 	amount_label.text = str("...",amount,"...")
 	cost = 0
 	cost_label.text = str(cost," coins")
+	Global.can_move = true

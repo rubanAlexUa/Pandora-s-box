@@ -5,6 +5,7 @@ signal healthChanges
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var grace_period: Timer = $GracePeriod
 @onready var sad_sound = $uomp
+@onready var nomnom = $nomnom
 
 var defence = 25
 var enemies_colliding = 0
@@ -79,6 +80,7 @@ func heal_player():
 	get_parent().get_node("CanvasLayer/CanvasLayer2/apples").current_apples -= 1
 	heal_sum = 20 + health_component.current_health
 	health_component.healing(heal_sum)
+	nomnom.play()
 	healthChanges.emit()
 
 func _on_hurt_box_area_entered(area) :

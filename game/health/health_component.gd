@@ -13,18 +13,18 @@ func _ready():
 	current_health = max_health
 	
 func take_damage(damage, defence, type):
-	$ket_hit.stop()
-	$hammer_hit.stop()
+	Global.ket_hit.stop()
+	Global.hammer_hit.stop()
 	print("Захист = ", defence)
 	var effective_damage = damage * (1.0 - defence / 100.0)
 	current_health = max(current_health - effective_damage, 0)
 	print("Здоров'я залишилося: ", current_health)
 	print("Приймає урон:", type)
 	if type == "enemy":
-		$hammer_hit.play()
+		Global.hammer_hit.play()
 		enemyHealthChanges.emit()
 	if type == "player":
-		$ket_hit.play()
+		Global.ket_hit.play()
 	check_death()
 	
 func healing(heal_sum):

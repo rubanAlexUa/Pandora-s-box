@@ -72,10 +72,12 @@ func _process(delta):
 	match current_state:
 		State.READY:
 			if not text_queue.is_empty():
+				Global.can_open_shop = false
 				Global.can_move = false
 				display_text()
 			else:
 				text_queue=[]
+				Global.can_open_shop = true
 				Global.can_move = true
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("mouse_left_click"):
@@ -90,6 +92,7 @@ func _process(delta):
 				hide_textbox()
 
 func hide_textbox():
+	Global.is_dialogue_open = false
 	start_symbol.text = ""
 	end_symbol.text = ""
 	main_text.text = ""
@@ -105,6 +108,7 @@ func display_text():
 		hide_textbox()
 		return
 
+	Global.is_dialogue_open = true
 	typing_sound.play()
 
 	var next_entry = text_queue.pop_front()

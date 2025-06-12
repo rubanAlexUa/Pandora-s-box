@@ -1,16 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy1482m2psb43"]
+[gd_scene load_steps=2 format=3 uid="uid://dy1482m2psb43"]
 
 [ext_resource type="Script" path="res://health/health_component.gd" id="1_4u7ki"]
-[ext_resource type="AudioStream" uid="uid://dmr15qchdxjpr" path="res://Overall sounds/hammer_hit2.mp3" id="2_v2kp0"]
-[ext_resource type="AudioStream" uid="uid://dvixtcl4snmxv" path="res://Overall sounds/ket_hit.mp3" id="3_hu3lb"]
 
 [node name="HealthComponent" type="Node"]
 script = ExtResource("1_4u7ki")
-
-[node name="hammer_hit" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_v2kp0")
-volume_db = -20.0
-
-[node name="ket_hit" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_hu3lb")
-volume_db = -20.0

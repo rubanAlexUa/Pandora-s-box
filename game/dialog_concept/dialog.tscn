@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8hp3kjqqruaf"]
+[gd_scene load_steps=11 format=3 uid="uid://b8hp3kjqqruaf"]
 
 [ext_resource type="Script" path="res://dialog_concept/dialog.gd" id="1_tbcmw"]
 [ext_resource type="FontFile" uid="uid://d3ne1fw7cf2hp" path="res://DS_Pixel_Cyr.ttf" id="2_t1s8c"]
 [ext_resource type="FontFile" uid="uid://djhci0wtk3red" path="res://Airport_Cyr.ttf" id="3_5r43a"]
 [ext_resource type="AudioStream" uid="uid://ctuj5ncyknvec" path="res://Overall sounds/Retro_01/Retro_Multiple_v3_wav.wav" id="3_i72kn"]
-[ext_resource type="Texture2D" uid="uid://wu1e0827ub86" path="res://Спрайти/Діалогове вікно/emotions/neutral.png" id="4_wmqph"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_83q1y"]
 
@@ -87,7 +86,6 @@ autowrap_mode = 3
 [node name="Emotion" type="TextureRect" parent="CanvasLayer/Panel/MarginContainer/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("4_wmqph")
 expand_mode = 3
 
 [node name="End" type="Label" parent="CanvasLayer/Panel/MarginContainer/Panel/HBoxContainer"]

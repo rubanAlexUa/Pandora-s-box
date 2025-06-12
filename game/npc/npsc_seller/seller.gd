@@ -85,6 +85,8 @@ func _ready():
 	animation_player.stop()
 	randomize()
 func _process(delta):
+	if(Global.is_dialogue_open == true):
+		act_with_me.visible = false
 	if get_parent().get_node("CanvasLayer/CanvasLayer/coins").current_money > 0 and acquaintancePlayer == 0:
 		acquaintancePlayer += 1
 	
@@ -99,8 +101,9 @@ func _process(delta):
 			dialogue_node.start_dialogue(acquaintance)
 			acquaintancePlayer +=1
 		else:
+			if(Global.can_open_shop == true):
+				$shopMenu.visible = true
 			dialogue_node.start_dialogue(lines)
-			$shopMenu.visible = true
 			Global.can_attack = false
 		act_with_me.visible = true
 
