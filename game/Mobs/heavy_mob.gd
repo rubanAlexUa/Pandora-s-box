@@ -11,8 +11,6 @@ var player = null
 var dir = Vector2.RIGHT
 var start_pos
 var is_roaming = true
-var is_chatting = false
-var player_in_chat_zone = false
 
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var progress_bar: ProgressBar = $ProgressBar
@@ -27,8 +25,6 @@ var current_state = IDLE
 
 func _ready():
 	health_component.died.connect(on_died)
-	randomize()
-	start_pos = position
 	health_component.max_health = 150
 	health_component.type = type
 	health_component.current_health = health_component.max_health
@@ -44,7 +40,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = true 
 
 func _process(delta):
-	if current_state == MOVE and !is_chatting:
+	if current_state == MOVE:
 		if dir.x == -1:
 			$AnimatedSprite2D.flip_h = false
 		if dir.x == 1:
@@ -72,14 +68,12 @@ func _on_timer_timeout():
 func _on_detection_area_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
-		player_in_chat_zone = true
 		player_chase = true
 
 func _on_detection_area_body_exited(body):
 	if body.is_in_group("player"):
 		player = null
 		player_chase = false
-		player_in_chat_zone = false
 
 func on_died():
 	queue_free()

@@ -1,16 +1,12 @@
 extends CharacterBody2D
 
 const speed = 30
-var current_state = SIDE_LEFT
+var current_state = IDLE
 
 var dir = Vector2.RIGHT
-var start_pos
 
 var is_roaming = true
-var is_chatting = false
 
-var player
-var player_in_chat_zone = false
 
 enum {
 	IDLE,
@@ -18,19 +14,15 @@ enum {
 	MOVE
 }
 
-func _ready():
-	randomize()
-	start_pos = position
 func _process(delta):
 	if current_state == 0 or current_state == 1:
 		$AnimatedSprite2D.play("idle")
-	elif current_state == 2 and !is_chatting:
+	elif current_state == 2 :
+		$AnimatedSprite2D.play("move")
 		if dir.x == -1:
 			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("move")
-		if dir.x == 1:
+		elif dir.x == 1:
 			$AnimatedSprite2D.flip_h = true
-			$AnimatedSprite2D.play("move")
 	if is_roaming:
 		match current_state:
 			IDLE:
@@ -46,15 +38,6 @@ func choose(array):
 func move(delta):
 	velocity = dir * speed
 	move_and_slide()
-
-func _on_chat_detection_area_body_entered(body) :
-	if body.is_in_group("player"):
-		player = body 
-		player_in_chat_zone = true
-	
-func _on_chat_detection_area_body_exited(body) :
-	if body.is_in_group("player"):
-		player_in_chat_zone = false
 
 func _on_timer_timeout() :
 	$Timer.wait_time = choose([0.5, 1, 1.5])

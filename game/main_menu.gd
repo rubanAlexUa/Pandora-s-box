@@ -19,14 +19,13 @@ func _ready():
 
 func _on_start_pressed():
 	var save_path = "user://save_data.json"
-	if FileAccess.file_exists(save_path):
-		var file = FileAccess.open(save_path, FileAccess.READ)
-		var data = file.get_as_text()
-		file.close()
-		var str_data = JSON.parse_string(data)
-		print(str_data)
-		if str_data and str_data.has("player_position_x") and str_data.has("player_position_y") and str_data.has("current_apples") and str_data.has("current_money"):
-			$warning.visible = true
+	var file = FileAccess.open(save_path, FileAccess.READ)
+	var data = file.get_as_text()
+	file.close()
+	var str_data = JSON.parse_string(data)
+	print(str_data)
+	if str_data and str_data.has("player_position_x") and str_data.has("player_position_y") and str_data.has("current_apples") and str_data.has("current_money"):
+		$warning.visible = true
 		return
 	get_tree().change_scene_to_file("res://before_nowDays.tscn")
 

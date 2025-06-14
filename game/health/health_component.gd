@@ -30,7 +30,6 @@ func take_damage(damage, defence, type):
 func healing(heal_sum):
 	if(heal_sum > max_health):
 		current_health = max_health
-		print(current_health)
 		return
 	current_health = heal_sum
 	print(current_health)

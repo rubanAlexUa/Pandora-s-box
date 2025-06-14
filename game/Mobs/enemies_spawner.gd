@@ -17,9 +17,12 @@ var mobs_scenes = {
 var base_x
 var base_y
 var offset
-func _ready():
-	randomize()  
 
+func _ready():
+	randomize()
+	call_deferred("_spawn_initial_groups")  
+
+func _spawn_initial_groups():
 	for i in 7:
 		print("Початок групи:", i)
 		base_x = randi_range(1000, 4000)
@@ -29,17 +32,15 @@ func _ready():
 			offset = randi_range(200, 400)
 			var enemy = _random_mob()
 			enemy.position = Vector2(base_x + offset, base_y + offset)
-			add_child(enemy)
+			_spawn_enemy(enemy)
 		print("Кінець групи:", i)
-
 
 func _random_mob() -> Node2D:
 	var keys = mobs_scenes.keys()
 	var random_key = keys[randi() % keys.size()]
 	return mobs_scenes[random_key].instantiate()
 
-
-func _on_timer_timeout() :
+func _on_timer_timeout():
 	randomize()
 	base_x = randi_range(1000, 4000)
 	base_y = randi_range(800, 2200)
@@ -48,5 +49,11 @@ func _on_timer_timeout() :
 		offset = randi_range(100, 250)
 		var enemy = _random_mob()
 		enemy.position = Vector2(base_x + offset, base_y + offset)
-		add_child(enemy)
-		print("Моб №",i ," x: ",base_x+offset, ", y: ",base_y+offset)
+		_spawn_enemy(enemy)
+		print("Моб №", i, " x: ", base_x + offset, ", y: ", base_y + offset)
+
+func _spawn_enemy(enemy: Node2D):
+	if get_parent():
+		get_parent().add_child(enemy)
+	else:
+		print("Нема батька! Неможливо додати моба.")

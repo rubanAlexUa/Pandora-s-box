@@ -7,14 +7,7 @@ func _ready() -> void:
 
 func _on_yes_pressed() -> void:
 	var save_path = "user://save_data.json"
-	var game_data = {
-		"acquaintancePlayer": 0,
-		"played_start_dialog": false,
-		"current_apples": 0,
-		"current_money": 0,
-		"player_position_x": 0,
-		"player_position_y": 0
-	}
+	var game_data = {}
 	var jsonstring = JSON.stringify(game_data)
 	
 	var file = FileAccess.open(save_path, FileAccess.WRITE)

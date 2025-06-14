@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://bti0vm4lgfcjt" path="res://Спрайти/button-Q/act_with_seller.png" id="2_mn6s8"]
 [ext_resource type="Texture2D" uid="uid://bkeiomnqwlloq" path="res://Спрайти/button-Q/act_with_seller2.png" id="3_s7j6c"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cctwj"]
+size = Vector2(58, 31)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lsfub"]
 radius = 38.0132
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpygi"]
-size = Vector2(63, 12)
 
 [sub_resource type="Animation" id="Animation_dfgsy"]
 loop_mode = 1
@@ -50,7 +50,12 @@ _data = {
 
 [node name="totem" type="CharacterBody2D"]
 z_index = 3
+y_sort_enabled = true
 script = ExtResource("1_aevyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 32.5)
+shape = SubResource("RectangleShape2D_cctwj")
 
 [node name="detection_area" type="Area2D" parent="."]
 
@@ -59,13 +64,10 @@ position = Vector2(0, 46)
 shape = SubResource("CircleShape2D_lsfub")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3, -1)
+position = Vector2(-3, 13)
 scale = Vector2(1.969, 2.032)
 texture = ExtResource("1_weqm2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 42)
-shape = SubResource("RectangleShape2D_bpygi")
+offset = Vector2(0, -7)
 
 [node name="actWithMe" type="Sprite2D" parent="."]
 position = Vector2(40, -12)

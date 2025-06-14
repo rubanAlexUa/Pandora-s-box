@@ -8,6 +8,9 @@ extends Node2D
 @onready var seller = $npc_seller
 @onready var shop_menu = seller.get_node("shopMenu")
 @onready var totem = $totem
+@onready var totem2 = $totem2
+@onready var totem3 = $totem3
+@onready var totem4 = $totem4
 @onready var pause_menu = $pause_menu
 
 @export var end_screen_scene: PackedScene
@@ -43,11 +46,14 @@ func _ready():
 	seller.dialogue_node = dialog_ui
 	shop_menu.dialogue_node = dialog_ui
 	totem.dialogue_node = dialog_ui
+	totem2.dialogue_node = dialog_ui
+	totem3.dialogue_node = dialog_ui
+	totem4.dialogue_node = dialog_ui
 
 func _process(delta):
 	if (Input.is_action_just_pressed("pause")):
-		pause_menu.visible = not pause_menu.visible  # переключаємо видимість меню паузи
-		Global.paused = pause_menu.visible  # оновлюємо глобальний стан (за потребою)
+		pause_menu.visible = not pause_menu.visible 
+		Global.paused = pause_menu.visible
 		if Global.paused:
 			get_tree().paused = true
 			return

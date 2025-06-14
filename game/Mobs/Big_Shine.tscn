@@ -44,7 +44,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0nxs"]
-radius = 73.0
+radius = 100.125
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xuqw8"]
 radius = 16.0312
@@ -58,6 +58,7 @@ radius = 30.2655
 
 [node name="enemyBigShine" type="CharacterBody2D"]
 z_index = 3
+y_sort_enabled = true
 script = ExtResource("1_imvxd")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_eb6m3")]
@@ -110,6 +111,4 @@ health_component = NodePath("../HealthComponent")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="HurtBoxComponent" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="HurtBoxComponent" to="HurtBoxComponent" method="_on_area_entered"]

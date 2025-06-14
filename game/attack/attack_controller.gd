@@ -1,6 +1,6 @@
 extends Node
 
-var hammer_damage = 20
+var hammer_damage = 25
 
 @export var atack_ability: PackedScene
 const ATTACK_DISTANCE = 100.0

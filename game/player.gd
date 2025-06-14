@@ -22,7 +22,6 @@ func _ready():
 	health_component.max_health = 100
 	health_component.current_health = health_component.max_health
 	add_to_group("player")
-	$AnimatedSprite2D.sprite_frames.set_animation_loop("dirt", false)
 	$AnimatedSprite2D.animation = "dead"
 	
 	await get_tree().create_timer(2.0).timeout
